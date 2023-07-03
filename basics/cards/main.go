@@ -1,12 +1,7 @@
 package main // Executeable type package
 
-import "fmt"
-
 func main() {
-	card := newCard()
-	fmt.Println(card)
-}
+	cards := newDeck()
 
-func newCard() string {
-	return "Life Is Short, Enjoy The Most!!!"
+	cards.print()
 }
