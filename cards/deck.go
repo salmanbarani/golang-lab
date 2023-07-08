@@ -3,7 +3,8 @@ package main
 // Creating a new type of 'deck' which is slice of strings
 import (
 	"fmt"
-	"ioutil"
+	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -40,5 +41,17 @@ func (d deck) toString() string {
 }
 
 func (d deck) saveToFile(fileName string) error {
-	ioutil.witeToFile(fileName, d.toString(), "+w")
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+	// 0666 permission is is anyone can read the file
+}
+
+func newDeckFromFile(fileName string) deck {
+	bs, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 }
