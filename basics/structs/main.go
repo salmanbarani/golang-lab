@@ -23,14 +23,21 @@ func main() {
 		},
 	}
 
-	empPointer := &emp
-
-	empPointer.updateFirstName("Johnny")
+	emp.updateFirstName("Johnny")
 	emp.print()
+
+	teams := "SAlman"
+	ch(teams)
+	fmt.Println(teams)
+
 }
 
 func (poniterToEmployer *employee) updateFirstName(firstName string) {
 	(*poniterToEmployer).firstName = firstName
+}
+
+func ch(teams string) {
+	teams = "1"
 }
 
 func (e employee) print() {
