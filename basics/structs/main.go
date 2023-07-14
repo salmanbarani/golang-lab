@@ -22,14 +22,17 @@ func main() {
 			phone: "00905539343945",
 		},
 	}
-	emp.updateFirstName("Johnny")
+
+	empPointer := &emp
+
+	empPointer.updateFirstName("Johnny")
 	emp.print()
 }
 
-func (e employee) updateFirstName(firstName string) {
-	e.firstName = firstName
+func (poniterToEmployer *employee) updateFirstName(firstName string) {
+	(*poniterToEmployer).firstName = firstName
 }
 
 func (e employee) print() {
-	fmt.Printf("%+v", e)
+	fmt.Printf("%+v\n", e)
 }
