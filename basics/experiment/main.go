@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
-func printState() {
-	fmt.Println("California")
+func main() {
+	name := "bill"
+
+	namePointer := &name
+
+	fmt.Println(&namePointer)
+	printPointer(namePointer)
+}
+
+func printPointer(namePointer *string) {
+	fmt.Println(&namePointer)
 }
